@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-osxNotif"
+        version="0.8.4">
+
+    <name>osxNotif</name>
+
+    <description>Local notifications for cordova on osx</description>
+
+    <keywords>osx notification center</keywords>
+
+    <author>Sam Verkoelen</author>
+
+    <engines>
+        <engine name="cordova" version=">=6.0.0" />
+        <engine name="apple-ios" version=">=10.0.0" />
+        <engine name="cordova-android" version=">=4"/>
+        <engine name="cordova-plugman" version=">=4.2.0"/>
+    </engines>
+
+    <!-- js -->
+    <js-module src="www/osxNotif.js" name="osxNotif">
+        <clobbers target="cordova.plugins.osxNotif" />
+    </js-module>
+
+    <!-- osx -->
+    <platform name="osx">
+        <config-file target="config.xml" parent="/*">
+            <feature name="osxNotif">
+                <param name="osx-package" value="osxNotif"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/osx/osxNotif.h" />
+        <source-file src="src/osx/osxNotif.m" />
+    </platform>
+
+</plugin>
